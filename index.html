@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taça das Ordens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .ordem {
+            margin: 15px 0;
+        }
+        .barra {
+            height: 30px;
+            width: 100%;
+            background-color: #444;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progresso {
+            height: 100%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let ordens = [
+                { nome: "Arautos do Abismo", pontos: 16, cor: "purple" },
+                { nome: "Crias da Noite", pontos: 43, cor: "darkred" },
+                { nome: "Legião Áurea", pontos: 16, cor: "gold" },
+                { nome: "Ordem da Chave Prateada", pontos: 30, cor: "silver" },
+                { nome: "Rebentos de Kleio", pontos: 48, cor: "darkblue" },
+                { nome: "Sobreviventes do Monte Grimm", pontos: 42, cor: "brown" }
+            ];
+
+            ordens.sort((a, b) => b.pontos - a.pontos);
+
+            let container = document.querySelector(".container");
+            container.innerHTML = "<h1>Taça das Ordens</h1>";
+
+            ordens.forEach(ordem => {
+                container.innerHTML += `
+                    <div class="ordem">
+                        <h2>${ordem.nome}</h2>
+                        <div class="barra">
+                            <div class="progresso" style="width: ${ordem.pontos}%; background-color: ${ordem.cor};">${ordem.pontos}</div>
+                        </div>
+                    </div>
+                `;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Taça das Ordens</h1>
+    </div>
+</body>
+</html>
