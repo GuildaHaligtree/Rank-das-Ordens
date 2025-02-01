@@ -79,4 +79,30 @@
             let container = document.querySelector(".container");
             container.innerHTML = "<h1>🏆 Taça das Ordens 🏆</h1>";
 
-   
+            ordens.forEach(ordem => {
+                container.innerHTML += `
+                    <div class="ordem">
+                        <h2>${ordem.nome}</h2>
+                        <div class="barra">
+                            <div class="progresso" style="width: 0%; background-color: ${ordem.cor};">${ordem.pontos}</div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Adiciona animação na barra de progresso
+            setTimeout(() => {
+                document.querySelectorAll(".progresso").forEach((el, index) => {
+                    el.style.width = ordens[index].pontos + "%";
+                });
+            }, 300);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>🏆 Taça das Ordens 🏆</h1>
+    </div>
+</body>
+</html>
+
