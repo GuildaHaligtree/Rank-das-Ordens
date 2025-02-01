@@ -5,66 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taça das Ordens</title>
     <style>
+        /* Estilo Geral */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            background-color: #1a1a1a;
+            background-color: #121212;
             color: white;
+            padding: 20px;
         }
+
+        /* Container principal */
         .container {
-            max-width: 600px;
-            margin: 20px auto;
+            max-width: 500px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
         }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
         .ordem {
-            margin: 15px 0;
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: transform 0.2s ease-in-out;
         }
+
+        .ordem:hover {
+            transform: scale(1.03);
+        }
+
+        /* Barra de progresso */
         .barra {
             height: 30px;
             width: 100%;
-            background-color: #444;
-            border-radius: 5px;
+            background-color: #333;
+            border-radius: 15px;
             overflow: hidden;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
         }
+
         .progresso {
             height: 100%;
             text-align: center;
             line-height: 30px;
             font-weight: bold;
-            color: black;
+            color: white;
+            border-radius: 15px;
+            transition: width 1s ease-out;
         }
     </style>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             let ordens = [
-                { nome: "Arautos do Abismo", pontos: 16, cor: "purple" },
-                { nome: "Crias da Noite", pontos: 43, cor: "darkred" },
-                { nome: "Legião Áurea", pontos: 16, cor: "gold" },
-                { nome: "Ordem da Chave Prateada", pontos: 30, cor: "silver" },
-                { nome: "Rebentos de Kleio", pontos: 48, cor: "darkblue" },
-                { nome: "Sobreviventes do Monte Grimm", pontos: 42, cor: "brown" }
+                { nome: "Arautos do Abismo", pontos: 16, cor: "#6a0dad" },
+                { nome: "Crias da Noite", pontos: 43, cor: "#8B0000" },
+                { nome: "Legião Áurea", pontos: 16, cor: "#FFD700" },
+                { nome: "Ordem da Chave Prateada", pontos: 30, cor: "#C0C0C0" },
+                { nome: "Rebentos de Kleio", pontos: 48, cor: "#4169E1" },
+                { nome: "Sobreviventes do Monte Grimm", pontos: 42, cor: "#8B4513" }
             ];
 
+            // Ordena da maior para a menor pontuação
             ordens.sort((a, b) => b.pontos - a.pontos);
 
             let container = document.querySelector(".container");
-            container.innerHTML = "<h1>Taça das Ordens</h1>";
+            container.innerHTML = "<h1>🏆 Taça das Ordens 🏆</h1>";
 
-            ordens.forEach(ordem => {
-                container.innerHTML += `
-                    <div class="ordem">
-                        <h2>${ordem.nome}</h2>
-                        <div class="barra">
-                            <div class="progresso" style="width: ${ordem.pontos}%; background-color: ${ordem.cor};">${ordem.pontos}</div>
-                        </div>
-                    </div>
-                `;
-            });
-        });
-    </script>
-</head>
-<body>
-    <div class="container">
-        <h1>Taça das Ordens</h1>
-    </div>
-</body>
-</html>
+   
